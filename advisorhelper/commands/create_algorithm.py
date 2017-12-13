@@ -2,14 +2,14 @@ import os
 
 from shutil import copy2
 
-from advisorhelper import templates
+import advisorhelper
 
 
 class Command:
     def __init__(self, args, path):
         self.args = args
         self.path = path
-        self.templates_base_dir = list(templates.__path__)[0]
+        self.templates_base_dir = os.path.join(list(advisorhelper.__path__)[0], "templates")
         self.templates_algo_dir = os.path.join(self.templates_base_dir, "algorithm")
         self.algo_dir = os.path.join(path, args)
 
